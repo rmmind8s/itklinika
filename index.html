@@ -1,1 +1,203 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
+<title>+37061600055 | Mindaugas R. | IT pagalba ➕ skaitmeniniai sprendimai ☁</title>
+<meta name="theme-color" content="#205dcd">
+
+<script src="https://kit.fontawesome.com/d51de49024.js" crossorigin="anonymous"></script>
+
+<style>
+:root {
+    --theme-color:#2b2249;
+    --theme-dark:#555;
+    --theme-white:#fff;
+    --notification-bottom:0.75rem;
+}
+
+*{box-sizing:border-box}
+
+html,body{
+    height:100%;
+    margin:0;
+    font-family:Arial,sans-serif;
+    display:flex;
+    flex-direction:column;
+    background:#f0f0f0;
+    color:#333;
+}
+
+header{
+    position:relative;
+    height:60%;
+    width:100%;
+    overflow:hidden;
+    background:var(--theme-color);
+    display:flex;
+    justify-content:center;
+}
+
+header img{
+    margin:auto;
+    width:100%;
+    max-width:600px;
+    object-fit:contain;
+}
+
+.header-content{
+    position:absolute;
+    inset:0;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    align-items:center;
+    background:rgba(0,0,0,.4);
+    color:#fff;
+    text-align:center;
+}
+
+header h2{margin:.5rem 0}
+
+.info{color:#ffffff77;margin-left:.15em}
+
+#description{
+    max-width:33vh;
+    background:rgba(255,255,255,.77);
+    padding:1rem;
+    margin-bottom:.5rem;
+    visibility:hidden;
+    color:#333;
+}
+
+main{
+    flex:1;
+    max-width:800px;
+    margin:0 auto;
+    text-align:center;
+}
+
+.phone{
+    font-size:2rem;
+    margin:1.5rem 0;
+}
+
+#copy{
+    font-size:2rem;
+    margin-left:.25em;
+    color:#595959;
+}
+
+ul{list-style:none;padding:0}
+li{margin:.5rem 0;font-size:2rem}
+
+#tel a{font-size:4rem;color:#00ca58}
+#sms a{color:#1f67ea}
+
+footer{
+    padding:1rem;
+    text-align:center;
+    background:#fff;
+    border-top:1px solid #ccc;
+    font-size:.9rem;
+}
+
+#notification{
+    visibility:hidden;
+    color:var(--theme-white);
+    background:var(--theme-dark);
+    border-radius:5px;
+    padding:16px 30px;
+    text-align:center;
+    position:fixed;
+    left:50%;
+    bottom:var(--notification-bottom);
+    transform:translateX(-50%);
+}
+
+#notification.show{
+    visibility:visible;
+    animation:fadein .5s,fadeout .5s 2.5s;
+}
+
+@keyframes fadein{
+    from{bottom:0;opacity:0}
+    to{bottom:var(--notification-bottom);opacity:1}
+}
+
+@keyframes fadeout{
+    from{opacity:1}
+    to{bottom:0;opacity:0}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<img src="./pfp.jpg" alt="Profilio nuotrauka">
+<div class="header-content">
+<p id="description">IT pagalba ➕ skaitmeniniai sprendimai ☁</p>
+<h2>
+IT'menas
+<a href="#" onclick="toggle_visibility('description');event.preventDefault();">
+<i class="fa-solid fa-circle-info info"></i>
+</a>
+</h2>
+<p>Informacinių technologijų specialistas</p>
+</div>
+</header>
+
+<main>
+<div class="phone">
+<span id="phone">+37061600055</span>
+<a id="copy" href="#" onclick="copy('phone');event.preventDefault();">
+<i class="fa-solid fa-copy"></i>
+</a>
+</div>
+
+<ul>
+<li id="tel">
+<a href="tel:+37061600055">
+<i class="fa-solid fa-square-phone-flip"></i>
+</a>
+</li>
+
+<li id="sms">
+<a href="sms:+37061600055">
+<i class="fa-solid fa-comment-sms"></i>
+</a>
+</li>
+</ul>
+</main>
+
+<footer>
+<a href="https://itklinika.lt/">ITKlinika.LT</a>
+<span id="notification"></span>
+</footer>
+
+<script>
+function showNotification(msg){
+let mb=document.getElementById("notification");
+mb.textContent=msg;
+mb.classList.add("show");
+setTimeout(()=>mb.classList.remove("show"),3000);
+}
+
+async function copy(id){
+try{
+let text=document.getElementById(id).textContent;
+await navigator.clipboard.writeText(text);
+showNotification("Nukopijuota");
+}catch(err){console.error(err);}
+}
+
+function toggle_visibility(id){
+let e=document.getElementById(id);
+e.style.visibility=(e.style.visibility==="visible")?"hidden":"visible";
+}
+</script>
+
+</body>
+</html>
