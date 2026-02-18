@@ -151,10 +151,6 @@ li {
     color: #595959;
 }
 
-#tel {
-    margin-bottom:1rem;
-}
-
 #tel a {
     font-size: 4rem;
     color: #00ca58;
@@ -184,6 +180,10 @@ li {
     display: inline-block;
     padding-left: 0.25rem;
     padding-right: 0.25rem;
+}
+
+.messenger li {
+    font-size: 2.5rem;
 }
 
 #notification {
@@ -262,19 +262,22 @@ li {
     </footer>
     
     <script>
-    function showNotification(msg){
-    let mb=document.getElementById("notification");
-    mb.textContent=msg;
-    mb.classList.add("show");
-    setTimeout(()=>mb.classList.remove("show"),3000);
+    function showNotification(msg) {
+        var mb = document.getElementById("notification");
+        mb.innerHTML = msg;
+        mb.className = "show";
+        setTimeout(()=>{ mb.className = mb.className.replace("show", ""); }, 3000);
     }
     
-    async function copy(id){
-    try{
-    let text=document.getElementById(id).textContent;
-    await navigator.clipboard.writeText(text);
-    showNotification("Nukopijuota");
-    }catch(err){console.error(err);}
+    async function copy(id) {
+        try {
+            var text = document.getElementById(id).innerHTML;
+            await navigator.clipboard.writeText(text);
+            showNotification("Nukopijuota");
+            console.log('Content copied to clipboard');
+        } catch (err) {
+            console.error('Failed to copy: ', err);
+        }
     }
     </script>
 
