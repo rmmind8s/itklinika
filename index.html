@@ -145,12 +145,6 @@ li {
     font-size: 2rem;
 }
 
-#copy {
-    font-size: 2rem;
-    margin-left:0.25em;
-    color: #595959;
-}
-
 #tel a {
     font-size: 4rem;
     color: #00ca58;
@@ -172,6 +166,10 @@ li {
     color: #24A1DE;
 }
 
+#facebook a{
+    color: #1877F2;
+}
+
 #messenger a {
     color: #0966ff;
 }
@@ -184,50 +182,6 @@ li {
 
 .messenger li {
     font-size: 2.5rem;
-}
-
-#notification {
-    visibility: hidden;
-    color: var(--theme-white);
-    background-color: var(--theme-dark);
-    font-size: 1em;
-
-    border-radius: 5px;
-    padding: 16px 30px;
-    text-align: center;
-
-    bottom: var(--notification-bottom);
-    z-index: 1;
-    position: fixed;
-
-    left: 50%;
-    transform: translate(-50%);
-}
-
-#notification.show {
-    visibility: visible;
-    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-    animation: fadein 0.5s, fadeout 0.5s 2.5s;
-}
-
-@-webkit-keyframes fadein {
-    from {bottom: 0; opacity: 0;}
-    to {bottom: var(--notification-bottom); opacity: 1;}
-}
-
-@keyframes fadein {
-    from {bottom: 0; opacity: 0;}
-    to {bottom: var(--notification-bottom); opacity: 1;}
-}
-
-@-webkit-keyframes fadeout {
-    from {bottom: var(--notification-bottom); opacity: 1;}
-    to {bottom: 0; opacity: 0;}
-}
-
-@keyframes fadeout {
-    from {bottom: var(--notification-bottom); opacity: 1;}
-    to {bottom: 0; opacity: 0;}
 }
     
 </style>
@@ -247,12 +201,13 @@ li {
     </header>
     
         <main>
-            <h1> <span id="phone">+37061600055</span><a id="copy" href="#" onclick="copy('phone');return false;"><i class="fa-solid fa-copy"></i></a></h1>
+            <h1> <span id="phone">+37061600055</span></h1>
             <ul>
                 <li id="tel"><a href="tel:+37061600055"><i class="fa-solid fa-square-phone-flip"></i></a></li>
                 <li id="sms" class="messenger" ><a href="sms:+37061600055"><i class="fa-solid fa-comment-sms"></i></a></li>
                 <li id="whatsapp" class="messenger" ><a href="https://wa.me/37061600055"><i class="fa-brands fa-whatsapp"></i></a></li>
-</ul>
+                <li id="facebook" class="messenger" ><a href="https://www.facebook.com/itsveikata"><i class="fa-brands fa-whatsapp"></i></a></li>
+            </ul>
 
         </main>
     
@@ -260,26 +215,6 @@ li {
     IT pagalba ➕ skaitmeniniai sprendimai ☁
     <span id="notification"></span>
     </footer>
-    
-    <script>
-    function showNotification(msg) {
-        var mb = document.getElementById("notification");
-        mb.innerHTML = msg;
-        mb.className = "show";
-        setTimeout(()=>{ mb.className = mb.className.replace("show", ""); }, 3000);
-    }
-    
-    async function copy(id) {
-        try {
-            var text = document.getElementById(id).innerHTML;
-            await navigator.clipboard.writeText(text);
-            showNotification("Nukopijuota");
-            console.log('Content copied to clipboard');
-        } catch (err) {
-            console.error('Failed to copy: ', err);
-        }
-    }
-    </script>
 
 </body>
 </html>
