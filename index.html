@@ -55,20 +55,20 @@ html,body{
     color:#333;
 }
 
-
-/* Hero container */
+/* Hero wrapper */
 .hero {
   width: 100%;
   display: flex;
-  justify-content: center; /* centras horizontalus */
-  background-color: #000;  /* jei ekrano plotis didesnis nei nuotrauka */
+  justify-content: center; /* horizontalus centras ekrane */
+  background-color: #000;  /* jei nuotrauka mažesnė nei ekranas */
 }
 
+/* Container, kuriame yra nuotrauka ir tekstas */
 .hero-container {
   position: relative;
   height: 65vh;            /* fiksuotas aukštis pagal ekraną */
   display: flex;
-  justify-content: center;  /* horizontalus centras */
+  justify-content: center;  /* horizontalus centras nuotraukai */
   align-items: flex-start;  /* nuotrauka viršuje */
   overflow: hidden;
 }
@@ -78,17 +78,56 @@ html,body{
   height: 100%;            /* užima visą container aukštį */
   width: auto;             /* proporcinga, nesuspausta */
   display: block;
-  object-fit: contain;     /* užtikrina proporcijas */
 }
 
-/* Gradientas nuotraukos apačioje */
+/* Gradientas po tekstu */
 .hero-gradient {
   position: absolute;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
+  max-width: 1024px;       /* ribojame pagal nuotraukos plotį */
   height: 35%;
+  background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Tekstas */
+.hero-text {
+  position: absolute;
+  bottom: 0;               /* ties nuotraukos apačia */
+  left: 50%;               /* horizontaliai centras container’e */
+  transform: translateX(-50%);
+  text-align: center;
+  color: #fff;
+  padding: 1rem;
+  z-index: 2;
+  width: 90%;              /* nesiplečia už nuotraukos ribų */
+  max-width: 1024px;       /* riboja tekstą pagal nuotraukos plotį */
+}
+
+.hero-text h2 {
+  font-size: 2rem;
+  margin: 0.2rem 0;
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+/* Responsyvus tekstas mobiliems įrenginiams */
+@media (max-width: 480px) {
+  .hero-text h2 {
+    font-size: 1.5rem;
+  }
+  .hero-text p {
+    font-size: 1rem;
+  }
+}
+
 
 
 
@@ -168,6 +207,7 @@ footer{
     </div>
   </div>
 </header>
+
 
 
 
