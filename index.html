@@ -60,23 +60,22 @@ html,body{
   width: 100%;
   display: flex;
   justify-content: center; /* horizontalus centras ekrane */
-  background-color: #000;  /* jei nuotrauka mažesnė nei ekranas */
+  background-color: #000;  /* jei ekrano plotis didesnis nei nuotrauka */
 }
 
-/* Container, kuriame yra nuotrauka ir tekstas */
+/* Container, kuriame nuotrauka ir tekstas */
 .hero-container {
   position: relative;
-  height: 65vh;            /* fiksuotas aukštis pagal ekraną */
   display: flex;
-  justify-content: center;  /* horizontalus centras nuotraukai */
-  align-items: flex-start;  /* nuotrauka viršuje */
-  overflow: hidden;
+  justify-content: center;  /* horizontalus centras */
+  align-items: flex-start;
 }
 
 /* Nuotrauka */
 .hero-img {
-  height: 100%;            /* užima visą container aukštį */
-  width: auto;             /* proporcinga, nesuspausta */
+  width: 100%;              /* užima visą container plotį */
+  max-width: 1024px;        /* neperžengia originalaus natūralaus pločio */
+  height: auto;             /* proporcinga, niekas nesuspausta */
   display: block;
 }
 
@@ -87,25 +86,25 @@ html,body{
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
-  max-width: 1024px;       /* ribojame pagal nuotraukos plotį */
-  height: 35%;
+  max-width: 1024px;        /* ribojame pagal nuotrauką */
+  height: 35%;               /* gradiento aukštis */
   background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
   pointer-events: none;
   z-index: 1;
 }
 
-/* Tekstas */
+/* Tekstas ant nuotraukos apačios */
 .hero-text {
   position: absolute;
-  bottom: 0;               /* ties nuotraukos apačia */
-  left: 50%;               /* horizontaliai centras container’e */
+  bottom: 0;                /* ties nuotraukos apačia */
+  left: 50%;
   transform: translateX(-50%);
   text-align: center;
   color: #fff;
   padding: 1rem;
   z-index: 2;
-  width: 90%;              /* nesiplečia už nuotraukos ribų */
-  max-width: 1024px;       /* riboja tekstą pagal nuotraukos plotį */
+  width: 90%;               /* nesiplečia už nuotraukos kraštų */
+  max-width: 1024px;        /* ribojame pagal nuotrauką */
 }
 
 .hero-text h2 {
@@ -127,6 +126,7 @@ html,body{
     font-size: 1rem;
   }
 }
+
 
 
 
@@ -207,6 +207,7 @@ footer{
     </div>
   </div>
 </header>
+
 
 
 
