@@ -59,73 +59,32 @@ html,body{
 .hero {
   width: 100%;
   display: flex;
-  justify-content: center; /* horizontalus centras ekrane */
-  background-color: #000;  /* jei ekrano plotis didesnis nei nuotrauka */
+  justify-content: center; 
+  background-color: #000; /* jei ekrano plotis didesnis nei nuotrauka */
 }
 
-/* Container, kuriame nuotrauka ir tekstas */
+/* Container nuotraukai ir tekstui */
 .hero-container {
   position: relative;
   display: flex;
-  justify-content: center;  /* horizontalus centras */
+  justify-content: center;
   align-items: flex-start;
+  width: 100%;
 }
 
 /* Nuotrauka */
 .hero-img {
-  width: 100%;              /* užima visą container plotį */
-  max-width: 1024px;        /* neperžengia originalaus natūralaus pločio */
-  height: auto;             /* proporcinga, niekas nesuspausta */
+  width: 100%;       /* užima visą container plotį */
+  height: auto;      /* proporcinga */
+  max-width: 1024px; /* riboja plotį */
   display: block;
 }
 
-/* Gradientas po tekstu */
-.hero-gradient {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  max-width: 1024px;        /* ribojame pagal nuotrauką */
-  height: 35%;               /* gradiento aukštis */
-  background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
-  pointer-events: none;
-  z-index: 1;
-}
-
-/* Tekstas ant nuotraukos apačios */
-.hero-text {
-  position: absolute;
-  bottom: 0;                /* ties nuotraukos apačia */
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
-  color: #fff;
-  padding: 1rem;
-  z-index: 2;
-  width: 90%;               /* nesiplečia už nuotraukos kraštų */
-  max-width: 1024px;        /* ribojame pagal nuotrauką */
-}
-
-.hero-text h2 {
-  font-size: 2rem;
-  margin: 0.2rem 0;
-}
-
-.hero-text p {
-  font-size: 1.2rem;
-  margin: 0;
-}
-
-/* Responsyvus tekstas mobiliems įrenginiams */
-@media (max-width: 480px) {
-  .hero-text h2 {
-    font-size: 1.5rem;
-  }
-  .hero-text p {
-    font-size: 1rem;
-  }
-}
+/* Desktop: ribojamas aukštis 65vh */
+@media (min-width: 768px) {
+  .hero-img {
+    max-height: 65vh;   /* ne didesnė nei 65% ekrano aukščio */
+    width: auto;        /* proporcinga pagal aukštį */
 
 
 
