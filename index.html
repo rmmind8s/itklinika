@@ -38,6 +38,7 @@
     
 <style>
 :root {
+    --theme-color: #999999;
     --theme-dark: #555555;
     --theme-white: #ffffff;
     --notification-bottom: 0.75rem;
@@ -61,7 +62,7 @@ header {
     height: 60%;
     width: 100%;
     overflow: hidden;
-    background: var(--main);
+    background: var(--theme-color);
     display: flex;
     justify-content: center;
 }
@@ -129,10 +130,6 @@ footer {
     font-size: 0.9rem;
 }
 
-footer a{
-    color: #555555;
-}
-
 a, a:link{
     text-decoration: none;
 }
@@ -179,10 +176,6 @@ li {
     padding-left: 0.25rem;
     padding-right: 0.25rem;
 }
-
-.messenger li {
-    font-size: 2.5rem;
-}
     
 </style>
     
@@ -206,7 +199,7 @@ li {
                 <li id="tel"><a href="tel:+37061600055"><i class="fa-solid fa-square-phone-flip"></i></a></li>
                 <li id="sms" class="messenger" ><a href="sms:+37061600055"><i class="fa-solid fa-comment-sms"></i></a></li>
                 <li id="whatsapp" class="messenger" ><a href="https://wa.me/37061600055"><i class="fa-brands fa-whatsapp"></i></a></li>
-                <li id="facebook" class="messenger" ><a href="https://www.facebook.com/itsveikata"><i class="fa-brands fa-whatsapp"></i></a></li>
+                <li id="facebook" class="messenger" ><a href="https://www.facebook.com/itsveikata"><i class="fa-brands fa-facebook"></i></a></li>
             </ul>
 
         </main>
