@@ -36,15 +36,74 @@
     
 <style>
     :root {
-        --theme-color: #999999;
-        --theme-dark: #555555;
-        --theme-white: #ffffff;
+        --main: #999999;
+        --dark: #555555;
+        --white: #ffffff;
         --notification-bottom: 0.75rem;
     }
     
     header {
-        background: var(--theme-color);
+        background: var(--main);
     }
+
+    
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+header {
+    position: relative;
+    height: 60%;
+    width: 100%;
+    overflow: hidden;
+    background-color: #2b2249;
+    display: flex;
+    justify-content: center;
+}
+
+header img {
+    margin: auto;
+    width: 100%;
+    max-width: 600px;
+    object-fit: contain;
+}
+
+.header-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.4); /* semi-transparent overlay */
+    color: #fff;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0.5rem 0;
+    font-size: 2rem;
+}
+
+header p {
+    margin: 0;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    color: #eee;
+}
+    
 </style>
     
 </head>
