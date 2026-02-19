@@ -164,6 +164,16 @@ li {
     padding-left: 0.25rem;
     padding-right: 0.25rem;
 }
+
+#description {
+    max-width: 33vh;
+    background-color: rgba(255, 255, 255, 0.77);
+    padding: 1rem;
+    color: #eee;
+    margin-bottom: 0.5rem;
+    visibility: hidden;
+    color: #333333;
+}
     
 </style>
     
@@ -175,8 +185,8 @@ li {
         
     <img id="profile" src="./img/mr-call.webp" alt="Header Image">
     <div class="header-content">
-    <h2>Mindaugas R.</h2>
-    <p>IT pagalba ➕ efektyvūs sprendimai ☁</p>
+    <p id="description" style="visibility: hidden;">Visokeriopa IT pagalba ➕ kūrybiniai sprendimai ☁</p>
+    <h2>Pagalbos linija<a href="#" onclick="toggle_visibility('description');"><i class="fa-solid fa-circle-info info"></i></a></h2>
     </div>
     
     </header>
@@ -193,6 +203,32 @@ li {
     <a href="https://itklinika.lt">ITklinika.LT</a>
     <span id="notification"></span>
     </footer>
-
+<script>
+    function showNotification(msg) {
+        var mb = document.getElementById("notification");
+        mb.innerHTML = msg;
+        mb.className = "show";
+        setTimeout(()=>{ mb.className = mb.className.replace("show", ""); }, 3000);
+    }
+    
+    async function copy(id) {
+        try {
+            var text = document.getElementById(id).innerHTML;
+            await navigator.clipboard.writeText(text);
+            showNotification("Nukopijuota");
+            console.log('Content copied to clipboard');
+        } catch (err) {
+            console.error('Failed to copy: ', err);
+        }
+    }
+    
+    function toggle_visibility(id) {
+      var e = document.getElementById(id);
+      if(e.style.visibility == 'hidden')
+        e.style.visibility = 'visible';
+      else
+        e.style.visibility = 'hidden';
+    }
+</script>
 </body>
 </html>
