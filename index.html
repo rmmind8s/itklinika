@@ -170,9 +170,15 @@ li {
     background-color: rgba(255, 255, 255, 0.77);
     padding: 1rem;
     color: #eee;
-    margin-bottom: 0.5rem;
     visibility: hidden;
     color: #333333;
+    position: fixed;
+    margin-top: 2rem;
+    border-radius: 1rem;
+}
+    
+#description li {
+    font-size: normal;
 }
     
 </style>
@@ -184,6 +190,19 @@ li {
     <header>
         
     <img id="profile" src="./img/mr-call.webp" alt="Header Image">
+        <div id="description" style="visibility: visible; font-size: medium;">
+            <p>IT pagalba ➕ efektyvūs sprendimai ☁</p>
+            <p>Padedu, kai:</p>
+            <ul>
+            <li>📡 Neveikia internetas</li>
+            <li>🖥️ Kompiuteris ar programa „stringa“</li>
+            <li>⚠️ Sistema meta klaidas</li>
+            <li>📱 Telefonas veikia ne taip, kaip turėtų</li>
+            <li>🧘 Norisi, kad būtų paprasčiau</li>
+            </ul>
+            
+            <p>#Technologijos #Procesai #Žmonės</p>
+        </div>
     <div class="header-content">
     <p id="description" style="visibility: hidden;">Visokeriopa IT pagalba ➕ kūrybiniai sprendimai ☁</p>
     <h2>Pagalbos linija<a href="#" onclick="toggle_visibility('description');"><i class="fa-solid fa-circle-info info"></i></a></h2>
